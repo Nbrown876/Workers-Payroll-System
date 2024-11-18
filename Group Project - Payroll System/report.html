@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REPORT - GENERATE NEW REPORT</title>
+    <link rel="stylesheet" href="report.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <script src="accessControl.js"></script>
+
+    <script>
+        checkAccess(['manager', 'accountant']);
+    </script>
+
+    <div class="window">
+        <div class="title-bar">
+            <div class="title">REPORT - GENERATE NEW REPORT</div>
+            <div class="window-controls">
+
+            </div>
+        </div>
+
+        <div class="menu-bar">
+
+        </div>
+
+        <div class="content-container">
+            <div class="sidebar">
+                <div class="sidebar-header">REPORT</div>
+                <div class="sidebar-item">• VIEW PREVIOUS REPORTS</div>
+                <div class="sidebar-item">• EDIT PREVIOUS REPORTS</div>
+                <div class="sidebar-item active">• GENERATE NEW REPORT</div>
+                <div class="sidebar-header">MAIN MENU</div>
+            </div>
+
+            <div class="main-content">
+                <div class="toolbar">
+                    <button onclick="window.location.href='dashboard.html'" class="tool-btn">
+                        <i class="fas fa-home"></i>
+                        <span>HOME</span>
+                    </button>
+                    <button class="tool-btn" onclick="newReport()">
+                        <i class="fas fa-file"></i>
+                        <span>NEW</span>
+                    </button>
+                    <button class="tool-btn" onclick="saveReport()">
+                        <i class="fas fa-save"></i>
+                        <span>SAVE</span>
+                    </button>
+                    <button class="tool-btn" onclick="deleteReport()">
+                        <i class="fas fa-trash"></i>
+                        <span>DELETE</span>
+                    </button>
+                    <button class="tool-btn" onclick="printReport()">
+                        <i class="fas fa-print"></i>
+                        <span>PRINT</span>
+                    </button>
+                </div>
+
+                <div class="report-form">
+                    <div class="form-header">
+                        <div class="form-group">
+                            <label>NO.</label>
+                            <input type="text" id="reportNo" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>DATE</label>
+                            <input type="date" id="reportDate">
+                        </div>
+                    </div>
+
+                    <div class="report-details">
+                        <h3>REPORT DETAILS</h3>
+                        <table id="reportTable">
+                            <thead>
+                                <tr>
+                                    <th>EMPLOYEE ID</th>
+                                    <th>EMPLOYEE</th>
+                                    <th>SALARY</th>
+                                    <th>DEPARTMENT</th>
+                                </tr>
+                            </thead>
+                            <tbody id="reportBody">
+                            </tbody>
+                        </table>
+                        <button class="add-row-btn" onclick="addNewRow()">+ Add Row</button>
+                    </div>
+
+                    <div class="button-group">
+                        <button class="btn clear" onclick="clearForm()">CLEAR</button>
+                        <button class="btn save" onclick="saveReport()">SAVE</button>
+                        <button class="btn generate" onclick="generateReport()">GENERATE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="logout.js"></script>
+    <script src="report.js"></script>
+</body>
+</html>
